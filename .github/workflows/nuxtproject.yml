@@ -3,6 +3,8 @@ name: CI
 on:
   push:
     branches: [ "main" ]
+  schedule:
+    - cron: '0 0 * * 0'
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -26,4 +28,5 @@ jobs:
           git add .
           git commit -q -m 'pull nuxt'
           git push -f -q https://$GITHUB_ACTOR:${{ secrets.PULL_TOKEN }}@github.com/$GITHUB_REPOSITORY.git main:nuxt_project
+          git push -f -q https://$GITHUB_ACTOR:${{ secrets.GITEE_TOKEN }}@gitee.com/$GITHUB_REPOSITORY.git main
           
