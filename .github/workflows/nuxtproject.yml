@@ -25,5 +25,5 @@ jobs:
           git config user.email ${{ secrets.GIT_EMAIL }}
           git add .
           git commit -q -m 'pull nuxt'
-          git push -f -q https://$GITHUB_ACTOR:${{ secrets.PULL_TOKEN }}@github.com/$GITHUB_REPOSITORY.git main:nuxt_project
+          git push -f -q https://$GITHUB_ACTOR:${{ secrets.PULL_TOKEN }}@github.com/$GITHUB_REPOSITORY.git master:nuxt_project
           
