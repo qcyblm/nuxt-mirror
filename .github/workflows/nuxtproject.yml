@@ -13,14 +13,13 @@ jobs:
         with:
           persist-credentials: false
           fetch-depth: 0
-      - name: Use Node.js
-        uses: actions/setup-node@main
-        with:
-          node-version: 16.20.1
       - name: Setup pnpm
+        uses: pnpm/action-setup@main
+        with:
+          version: 8
+          run_install: pnpm dlx nuxi@latest init nuxt-project
+      - name: Publish to the git platform
         run: |
-          npm install pnpm -g
-          pnpm dlx nuxi@latest init nuxt-project
           cd nuxt-project
           git init -b main
           git config user.name $GITHUB_ACTOR
