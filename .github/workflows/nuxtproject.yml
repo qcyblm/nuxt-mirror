@@ -17,9 +17,9 @@ jobs:
         uses: pnpm/action-setup@master
         with:
           version: 8
-          run_install: pnpm dlx nuxi@latest init nuxt-project
       - name: Publish to the git platform
         run: |
+          pnpm dlx nuxi@latest init nuxt-project
           cd nuxt-project
           git init -b main
           git config user.name $GITHUB_ACTOR
